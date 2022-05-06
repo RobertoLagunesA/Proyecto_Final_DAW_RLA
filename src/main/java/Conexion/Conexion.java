@@ -1,7 +1,6 @@
 package Conexion;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class ConnectionBD extends Login {
     private Statement stmt;

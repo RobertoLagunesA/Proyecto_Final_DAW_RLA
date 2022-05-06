@@ -1,27 +1,27 @@
 package Modelo;
 import java.io.Serializable;
 
-public class LugarEvento implements Serializable {
+public class LugarEventoJB implements Serializable {
     private int id_lugar;
     private String nombre_lugar;
     private String direccion;
 
-    public LugarEvento(){
+    public LugarEventoJB(){
     }
 
     //Insertar
-    public LugarEvento(String nombre_lugar, String direccion){
+    public LugarEventoJB(String nombre_lugar, String direccion){
         this.nombre_lugar=nombre_lugar;
         this.direccion=direccion;
     }
 
     //Eliminar
-    public LugarEvento(int id_lugar){
+    public LugarEventoJB(int id_lugar){
         this.id_lugar = id_lugar;
     }
 
     //Modificar
-    public LugarEvento(int id_lugar, String nombre_lugar, String direccion){
+    public LugarEventoJB(int id_lugar, String nombre_lugar, String direccion){
         this.id_lugar=id_lugar;
         this.nombre_lugar=nombre_lugar;
         this.direccion=direccion;

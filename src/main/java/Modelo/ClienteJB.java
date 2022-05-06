@@ -1,7 +1,7 @@
 package Modelo;
 import java.io.Serializable;
 
-public class DatosPersonalesJB implements Serializable {
+public class ClienteJB implements Serializable {
     private int id_cliente;
     private String nombre;
     private String apellido;
