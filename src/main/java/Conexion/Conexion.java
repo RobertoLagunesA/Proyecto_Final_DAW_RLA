@@ -1,85 +1,25 @@
 package Conexion;
 import java.sql.*;
+//Conexion a la Base de datos
+public class Conexion {
+    public static Connection getConnection() {
+        String url, userName, password;
+        url = "jdbc:postgresql://localhost:5432/Proyecto_Final_DAW_RLA";
+        userName = "postgres";
+        password = "3312";
 
-
-public class ConnectionBD extends Login {
-    private Statement stmt;
-    private Connection con;
-    private ResultSet rs;
-
-    public ConnectionBD(String db, String owner, String pwd) {
-        super(db, owner, pwd);
-    }
-
-    public Statement getStatement() {
-        return this.stmt;
-    }
-
-    public Connection getConnection() {
-        return this.con;
-    }
-
-    public ResultSet getResultSet() {
-        return this.rs;
-    }
-
-    public void createStmt() {
-        try {
-            stmt = con.createStatement();
-        } catch (SQLException e) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, "Error al crear el Statement.", e);
-        }
-    }
-
-    public boolean executeQuery(String query) throws SQLException {
-        this.setConnection();
-        this.createStmt();
-        try {
-            this.getStatement().execute(query);
-        } catch (SQLException ex) {
-            this.getStatement().close();
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, "Error al realizar la inserción", ex);
-            return false;
-        } finally {
-            this.disconnect();
-        }
-        return true;
-    }
-
-    public void closeStmt() {
-        try {
-            stmt.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, "Error al cerrar el Statement.", ex);
-        }
-    }
-
-    public void closeRs() {
-        try {
-            rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, "Error al cerrar el Statement.", ex);
-        }
-    }
-
-    @Override
-    public void setConnection() {
+        Connection con = null;
         try {
             Class.forName("org.postgresql.Driver");
-
-            con = DriverManager.getConnection(super.getUrl(), super.getOwner(), super.getPassword());
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, "Error al conectarse.", ex);
+            con = DriverManager.getConnection(url, userName, password);
+            System.out.println("Conexion exitosa a la Base de Datos");
+        }catch (Exception e){
+            System.out.println("Error al conectar la Base de Datos");
+            System.out.println(e.getMessage());
         }
-    }
-
-    @Override
-    public void disconnect() {
-        try {
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, "Error al desconectarse.", ex);
-        }
+        return con;
     }
 }
+
+
+
