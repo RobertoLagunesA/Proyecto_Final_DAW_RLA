@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&display=swap');
+
+
+/* Hoja de estilo de la pagina INICIO */
+
+*{
+    box-sizing: border-box;
+    font-family: 'Akshar', sans-serif;
+}
+
+
+
+body{
+    margin: 0;
+}
+
+h1{ 
+font-size: 3.5em;
+}
+h2{ 
+font-size: 3em;
+}
+h3{ 
+font-size: 2em;
+}
+p{ 
+font-size: 1.25em;
+}
+
+button{
+   font-size: 1.5em;
+   font-weight: bold;
+   padding: 10px 20px;
+   border-radius: 10px;
+   border: 1px solid white;
+   box-shadow: 2px 2px 5px;
+   color: white;
+   background-color: #10bcfa;
+}
+
+button:hover{  /* Cuando el cursor se sobrepone cambia de color*/
+    background-color: #fc0b58;
+}
+
+.container{ /* Tamaño de los contenedores de las secciones*/
+    max-width: 1480px;
+    margin: auto;
+}
+
+header{  /* Color del Header*/
+    background-color: #fc0b58;
+}
+
+header .logo{ /* Header, logo, DJ Art3mixx */
+    margin: 0;
+    padding: 10px 30px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 3em;
+}
+
+header .container{ /* Header, logo, DJ Art3mixx, centrado, version MOBILE */
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{ /* Header, Estilo INICIO, FORMULARIO Y CONTACTO, Centrado MOBILE */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a {  /* Header, Estilo INICIO, FORMULARIO Y CONTACTO, Etiquetas, color MOBILE */
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 2em;
+}
+
+header a:hover{  /* Header, pasamos con el cursor arriba del nombre */
+    color: #119DA4;
+}
+
+#hero{  /* Seccion de fondo de inicio  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 95vh;
+    color: white;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+)
+    ,url("../imagenes/Marshmello.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#hero h1{
+    color: white;
+}
+
+#hero button{
+    font-size: 1.7em;
+}
+
+#somosdj .container{
+    text-align: center;
+    color: black;
+    padding: 100px 12px;
+    
+}
+
+#somosdj{
+   background-color: #ffffff;
+}
+
+
+#nuestroservicio{
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+}
+
+
+#nuestroservicio .container{
+    padding: 150px 12px;
+}
+
+
+#nuestroservicio h2{
+    margin-top: 0;
+    font-size: 4em;
+}
+
+#nuestroservicio p{
+    display: none;
+}
+
+#nuestroservicio .servicios{
+    background-position: center center;
+    background-size: cover;
+    padding: 50px;
+    margin:20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px;
+    color: #ffffff;
+}
+
+.servicios:first-child{
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+)
+    ,url("../imagenes/handsup.jpg");
+}
+
+.servicios:nth-child(2){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+)
+    ,url("../imagenes/music.jpg");
+}
+
+.servicios:nth-child(3){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+)
+    ,url("../imagenes/mix.jpg");
+}
+
+footer{ /* Color del footer*/
+    background-color: #fc0b58;
+}
+
+footer p{ /* Color del parrafo footer*/
+    margin: 0;
+    padding: 12px;
+    color: #ffffff;
+}
+
+footer .container{ /* Medidas del contenedor del footer*/
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+@media (min-width: 720px){  /* Ajuste de medidas para version ESCRITORIO WEB COMPLETA SUPERANDO LOS 720PXr*/
+    header{ /* Medidas del contenedor del header principal*/
+        position: fixed;
+        width: 100%;
+    }
+    
+    header .container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    header nav{
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 25px;
+    }
+    
+    #somosdj .container{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    #somosdj .texto{
+        width: 50%;
+        max-width: 600px;
+        text-align: initial;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    
+    #somosdj .imgdj{
+        background-image: url("../imagenes/dj.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 550px;
+        width: 750px;
+        box-shadow: 8px 8px 10px black;
+    }
+    
+    #hero h1{
+    color: white;
+    font-size: 5em;
+}
+    
+    #nuestroservicio .programas{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #nuestroservicio p{
+        display: block;
+        margin-bottom: 30px;
+        
+    }
+    
+    
+  .servicios:first-child{
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+)
+    ,url("../imagenes/handsup.crop.jpg");
+}
+
+.servicios:nth-child(2){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+)
+    ,url("../imagenes/music.crop.jpg");
+}
+
+.servicios:nth-child(3){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+)
+    ,url("../imagenes/mix.crop.jpg");
+}
+
+#nuestroservicio .servicios{
+    padding: 50px;
+    background-size: 100% 150px;
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-color: #2d2e29;
+    box-shadow: 8px 8px 10px black;
+}
+
+h3{ 
+font-size: 2.2em;
+}
+    
+    
+}

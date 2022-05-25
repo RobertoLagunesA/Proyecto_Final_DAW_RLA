@@ -1,0 +1,182 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&display=swap');
+
+/* Hoja de estilo de la pagina FORMULARIO */
+
+*{
+    box-sizing: border-box;
+    font-family: 'Akshar', sans-serif;
+
+}
+
+body{
+    margin: 0;
+}
+
+h1{ 
+font-size: 3.0em;
+}
+
+h2{ 
+font-size: 2.7em;
+}
+
+h3{ 
+font-size: 1.7em;
+}
+
+p{  /* Tamaño de los parrafos*/
+font-size: 1em;
+}
+
+.container{ /* Tamaño de los contenedores de las secciones*/
+    max-width: 1480px;
+    margin: auto;
+}
+
+header{ /* Color de fondo del header */
+    background-color: #fc0b58;
+}
+
+header .logo{ /* Header, logo, DJ Art3mixx */
+    margin: 0;
+    padding: 10px 30px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 3em;
+}
+
+header .container{ /* Header, logo, DJ Art3mixx, centrado, version MOBILE */
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{ /* Header, Estilo INICIO, FORMULARIO Y CONTACTO, Centrado MOBILE */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a {  /* Header, Estilo INICIO, FORMULARIO Y CONTACTO, Etiquetas, color MOBILE */
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 2em;
+    
+}
+
+header a:hover{  /* Header, pasamos con el cursor arriba del nombre */
+    color: #119DA4;
+}
+
+#hero{  /*  Inicio Seccion Formulario   */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 240vh;
+    background: whitesmoke;
+    
+}
+
+
+
+#formularioglobal .ctrl{
+    border-radius: 5px;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    width: 22em;
+    box-shadow: 0 0.1rem #dfd9d9;
+    cursor: pointer;
+    outline-color: lightblue;
+}
+    
+
+#formularioglobal .com{
+    border-radius: 5px;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    width: 30em;
+    box-shadow: 0 0.1rem #dfd9d9;
+    cursor: pointer;
+    outline-color: lightblue;
+}
+
+#formularioglobal .botones{
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0.1rem #dfd9d9;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+
+
+#formularioglobal .botones:hover{
+  background-color: #10bcfa;
+  box-shadow: 0px 15px 20px rgba(46, 192, 249, 0.4);
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+footer{ /* Color del footer*/
+    background-color: #fc0b58;
+}
+
+footer p{ /* Color del parrafo footer*/
+    margin: 0;
+    padding: 12px;
+    color: #ffffff;
+}
+
+footer .container{ /* Medidas del contenedor del footer*/
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+/* Ajuste de medidas para version ESCRITORIO WEB COMPLETA SUPERANDO LOS 720PX*/
+@media (min-width: 720px){  
+    header{ /* Medidas del contenedor del header principal*/
+        position: fixed;
+        width: 100%;
+    }
+    
+    header .container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    header nav{
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 25px;
+    }
+    
+    #hero{  /*  Inicio Seccion Formulario   */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 140vh;
+    background: whitesmoke;
+    
+}
+  
+    
+}
