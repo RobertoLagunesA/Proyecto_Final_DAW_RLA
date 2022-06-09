@@ -12,23 +12,23 @@ public class ComentariosDAO {
 
     //Insertar datos de comentarios
     public static int insertComentario(ComentariosJB co){
-        int estatus=0; //Si se realiza o no la operacion
+        int estatus_co =0; //Si se realiza o no la operacion
         try{ //Conexion con la BD
             Connection con = Conexion.getConnection();
-            String q ="INSERT INTO comentarios(comentarios) " //Establecemos Query
+            String q ="INSERT INTO comentarios(comentario) " //Establecemos Query
                     + "VALUES(?)";
 
             PreparedStatement ps= con.prepareStatement(q); //Prepara la sentencia
             //Usamos Getters and Setter
             ps.setString(1, co.getComentarios());
-            estatus= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
+            estatus_co = ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
             System.out.println("Registro Exitoso del comentario");
             con.close();
         }catch(Exception ed){
             System.out.println("Error al registrar el comentario");
             System.out.println(ed.getMessage());
         }
-        return estatus;
+        return estatus_co;
     }
 
 

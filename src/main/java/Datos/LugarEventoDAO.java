@@ -1,7 +1,6 @@
 package Datos;
 
 import Controlador.Conexion;
-import Modelo.ClienteJB;
 import Modelo.LugarEventoJB;
 
 import java.sql.Connection;
@@ -14,24 +13,27 @@ public class LugarEventoDAO {
 
     //Insertar datos de Lugar
     public static int insertLugar(LugarEventoJB l){
-        int estatus=0; //Si se realiza o no la operacion/
+        int estatus_l=0; //Si se realiza o no la operacion/
         try{ //Conexion con la BD
             Connection con = Conexion.getConnection();
-            String q ="INSERT INTO lugarevento (nombre_lugar, direccion, fecha)" //Establecemos Query
+            String q ="INSERT INTO lugarevento(nombre_lugar, direccion, fecha)" //Establecemos Query
                     + "VALUES(?,?,?)";
+            
             PreparedStatement ps= con.prepareStatement(q); //Prepara la sentencia
+            
             //Usamos Getters and Setter
             ps.setString(1, l.getNombre_lugar());
             ps.setString(2, l.getDireccion());
             ps.setString(3, l.getFecha());
-            estatus= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
+            
+            estatus_l= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
             System.out.println("Registro Exitoso del Lugar");
             con.close();
         }catch(Exception ed){
             System.out.println("Error al registrar el Lugar");
             System.out.println(ed.getMessage());
         }
-        return estatus;
+        return estatus_l;
     }
 
 

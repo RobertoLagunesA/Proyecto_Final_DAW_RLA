@@ -11,27 +11,27 @@ public class TipoEventoDAO {
 
     //Insertar datos de Evento
     public static int insertEvento(TipoEventoJB t){
-        int estatus=0; //Si se realiza o no la operacion/
+        int estatus_t=0; //Si se realiza o no la operacion/
         try{ //Conexion con la BD
             Connection con = Conexion.getConnection();
-            String q ="INSERT INTO tipoevento(categoria, tipo, nombre, tematica)" //Establecemos Query
+            String q ="INSERT INTO tipoevento(categoria, tipo, tematica, nom_tpo)" //Establecemos Query
                     + "VALUES(?,?,?,?)";
 
             PreparedStatement ps= con.prepareStatement(q); //Prepara la sentencia
             //Usamos Getters and Setter
             ps.setString(1, t.getCategoria());
             ps.setString(2, t.getTipo());
-            ps.setString(3, t.getNombre());
-            ps.setString(4, t.getTematica());
+            ps.setString(3, t.getTematica());
+            ps.setString(4, t.getNom_tpo());
 
-            estatus= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
+            estatus_t= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
             System.out.println("Registro Exitoso del Evento");
             con.close();
         }catch(Exception ed){
             System.out.println("Error al registrar el Evento");
             System.out.println(ed.getMessage());
         }
-        return estatus;
+        return estatus_t;
     }
 
 
@@ -40,15 +40,16 @@ public class TipoEventoDAO {
         int estatus=0; //Si se realiza o no la operacion
         try{
             Connection con = Conexion.getConnection();
-            String q ="UPDATE tipoevento set categoria=?, tipo=?, nombre=?, tematica=?"
+            String q ="UPDATE tipoevento set categoria=?, tipo=?,tematica=?,nom_tpo=?"
                     +"WHERE id_evento=?";
             PreparedStatement ps= con.prepareStatement(q);
 
             //Usamos Getters and Setter
             ps.setString(1, t.getCategoria());
             ps.setString(2, t.getTipo());
-            ps.setString(3, t.getNombre());
-            ps.setString(4, t.getTematica());
+            ps.setString(3, t.getTematica());
+            ps.setString(4, t.getNom_tpo());
+            
             ps.setInt(5, t.getId_evento());
 
             estatus= ps.executeUpdate();
@@ -95,8 +96,8 @@ public class TipoEventoDAO {
                 t.setId_evento(rs.getInt(1));
                 t.setCategoria(rs.getString(2));
                 t.setTipo(rs.getString(3));
-                t.setNombre(rs.getString(4));
-                t.setTematica(rs.getString(5));
+                t.setTematica(rs.getString(4));
+                t.setNom_tpo(rs.getString(5));
             }
 
             System.out.println("Cliente Encontrado");
@@ -122,9 +123,9 @@ public class TipoEventoDAO {
             while(rs.next()){
                 t.setId_evento(rs.getInt(1));
                 t.setCategoria(rs.getString(2));
-                t.setTipo(rs.getString(3));
-                t.setNombre(rs.getString(4));
-                t.setTematica(rs.getString(5));
+                t.setTipo(rs.getString(3)); 
+                t.setTematica(rs.getString(4));
+                t.setNom_tpo(rs.getString(5));
                 lista.add(t);
             }
 

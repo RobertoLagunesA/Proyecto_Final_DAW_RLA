@@ -22,7 +22,7 @@ public class CancionesDAO {
             PreparedStatement ps= con.prepareStatement(q); //Prepara la sentencia
             //Usamos Getters and Setter
             ps.setString(1, c.getCancion_favorita());
-
+            
             estatus_can= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
             System.out.println("Registro Exitoso de la cancion");
             con.close();

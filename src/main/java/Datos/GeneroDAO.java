@@ -16,14 +16,14 @@ public class GeneroDAO {
         int estatus_gen=0; //Si se realiza o no la operacion
         try{ //Conexion con la BD
             Connection con = Conexion.getConnection();
-            String q ="INSERT INTO genero (nombre_genero) " //Establecemos Query
+            String q ="INSERT INTO genero(nombre_genero) " //Establecemos Query
                     + "VALUES(?)";
 
             PreparedStatement ps= con.prepareStatement(q); //Prepara la sentencia
             //Usamos Getters and Setter
             ps.setString(1, g.getNombre_genero());
             
-            estatus_gen= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
+            estatus_gen = ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
             System.out.println("Registro Exitoso del Genero");
             con.close();
         }catch(Exception ed){
@@ -101,7 +101,7 @@ public class GeneroDAO {
     //Buscar TODOS los datos de los generos con el ArrayList
     public static List<GeneroJB> searchAllGenero(){
         List<GeneroJB> lista = new ArrayList<GeneroJB>();//Generamos objeto de la lista
-        GeneroJB g = new GeneroJB(); //Intanciamos JB
+        
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM genero";
@@ -109,6 +109,7 @@ public class GeneroDAO {
             PreparedStatement ps= con.prepareStatement(q);
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
+                GeneroJB g = new GeneroJB(); //Intanciamos JB
                 g.setId_genero(rs.getInt(1));
                 g.setNombre_genero(rs.getString(2));
                 lista.add(g);

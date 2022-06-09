@@ -12,25 +12,27 @@ public class PlaylistDAO {
 
     //Insertar datos de Playlist
     public static int insertPlaylist(PlaylistJB p){
-        int estatus=0; //Si se realiza o no la operacion/
+        int estatus_p = 0; //Si se realiza o no la operacion/
         try{ //Conexion con la BD
             Connection con = Conexion.getConnection();
-            String q ="INSERT INTO playlist (nombre, link_c)" //Establecemos Query
+            String q ="INSERT INTO playlist(nom_play, link_c)" //Establecemos Query
                     + "VALUES(?,?)";
+            
             PreparedStatement ps= con.prepareStatement(q); //Prepara la sentencia
 
             //Usamos Getters and Setter
-            ps.setString(1, p.getNombre());
+            ps.setString(1, p.getNom_play());
             ps.setString(2, p.getLink_c());
 
-            estatus= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
+            estatus_p = ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
             System.out.println("Registro Exitoso de la playlist");
             con.close();
         }catch(Exception ed){
             System.out.println("Error al registrar Playlist");
             System.out.println(ed.getMessage());
         }
-        return estatus;
+        
+        return estatus_p;
     }
 
 
@@ -44,7 +46,7 @@ public class PlaylistDAO {
             PreparedStatement ps= con.prepareStatement(q);
 
             //Usamos Getters and Setter
-            ps.setString(1, p.getNombre());
+            ps.setString(1, p.getNom_play());
             ps.setString(2, p.getLink_c());
             ps.setInt(3, p.getId_playlist());
             estatus= ps.executeUpdate();
@@ -90,7 +92,7 @@ public class PlaylistDAO {
             ResultSet rs= ps.executeQuery();
             if(rs.next()){ //Si dentro de la consulta obtengo el elemento de la tabla
                 p.setId_playlist(rs.getInt(1));
-                p.setNombre(rs.getString(2));
+                p.setNom_play(rs.getString(2));
                 p.setLink_c(rs.getString(3));
             }
             System.out.println("Playlist Encontrada");
@@ -115,7 +117,7 @@ public class PlaylistDAO {
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
                 p.setId_playlist(rs.getInt(1));
-                p.setNombre(rs.getString(2));
+                p.setNom_play(rs.getString(2));
                 p.setLink_c(rs.getString(3));
                 lista.add(p);
             }

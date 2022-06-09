@@ -10,31 +10,30 @@ import java.util.List;
 public class GrupoMusicalDAO {
 
     //Insertar datos de Grupo
-    public static int insertGrupo(GrupoMusicalJB g){
-        int estatus=0; //Si se realiza o no la operacion/
+    public static int insertGrupo(GrupoMusicalJB gm){
+        int estatus_gm = 0; //Si se realiza o no la operacion/
         try{ //Conexion con la BD
             Connection con = Conexion.getConnection();
-            String q ="INSERT INTO grupomusical (nombre_grupo, cancion_popular)" //Establecemos Query
-                    + "VALUES(?,?)";
+            String q ="INSERT INTO grupomusical(nombre_grupo)" //Establecemos Query
+                    + "VALUES(?)";
             PreparedStatement ps= con.prepareStatement(q); //Prepara la sentencia
 
             //Usamos Getters and Setter
-            ps.setString(1, g.getNombre_grupo());
-            ps.setString(2, g.getCancion_popular());
+            ps.setString(1, gm.getNombre_grupo());
 
-            estatus= ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
+            estatus_gm = ps.executeUpdate(); //Le asignamos a estatus la sentencia para verificar si la realizo
             System.out.println("Registro Exitoso del Grupo");
             con.close();
         }catch(Exception ed){
             System.out.println("Error al registrar el Grupo");
             System.out.println(ed.getMessage());
         }
-        return estatus;
+        return estatus_gm;
     }
 
 
     //Actualizar datos del grupo
-    public static int updateGrupo(GrupoMusicalJB g){
+    public static int updateGrupo(GrupoMusicalJB gm){
         int estatus=0; //Si se realiza o no la operacion
         try{
             Connection con = Conexion.getConnection();
@@ -42,9 +41,8 @@ public class GrupoMusicalDAO {
                     +"WHERE id_grupo=?";
             PreparedStatement ps= con.prepareStatement(q);
             //Usamos Getters and Setter
-            ps.setString(1, g.getNombre_grupo());
-            ps.setString(2, g.getCancion_popular()) ;
-            ps.setInt(3, g.getId_grupo());
+            ps.setString(1, gm.getNombre_grupo());
+            ps.setInt(2, gm.getId_grupo());
             estatus= ps.executeUpdate();
             System.out.println("Exito al Actualizar el Grupo");
             con.close();
@@ -78,7 +76,7 @@ public class GrupoMusicalDAO {
 
     //Buscar datos del grupo por el identificador id
     public static GrupoMusicalJB searchGrupo(int id){
-        GrupoMusicalJB g = new GrupoMusicalJB(); //Intanciamos JB
+        GrupoMusicalJB gm = new GrupoMusicalJB(); //Intanciamos JB
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM grupomusical WHERE id_grupo=?"; //Query
@@ -87,9 +85,8 @@ public class GrupoMusicalDAO {
             ps.setInt(1,id);
             ResultSet rs= ps.executeQuery();
             if(rs.next()){ //Si dentro de la consulta obtengo el elemento de la tabla
-                g.setId_grupo(rs.getInt(1));
-                g.setNombre_grupo(rs.getString(2));
-                g.setCancion_popular(rs.getString(3));
+                gm.setId_grupo(rs.getInt(1));
+                gm.setNombre_grupo(rs.getString(2));
             }
 
             System.out.println("Grupo Encontrado");
@@ -98,13 +95,13 @@ public class GrupoMusicalDAO {
             System.out.println("Error al buscar el Grupo");
             System.out.println(ed.getMessage());
         }
-        return g; //Retornamos al objeto
+        return gm; //Retornamos al objeto
     }
 
     //Buscar TODOS los grupos con el ArrayList
     public static List<GrupoMusicalJB> searchAllCliente(){
         List<GrupoMusicalJB> lista = new ArrayList<GrupoMusicalJB>();//Generamos objeto de la lista
-        GrupoMusicalJB g = new GrupoMusicalJB(); //Intanciamos JB
+        GrupoMusicalJB gm = new GrupoMusicalJB(); //Intanciamos JB
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM grupomusical";
@@ -113,10 +110,9 @@ public class GrupoMusicalDAO {
 
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
-                g.setId_grupo(rs.getInt(1));
-                g.setNombre_grupo(rs.getString(2));
-                g.setCancion_popular(rs.getString(3));
-                lista.add(g);
+                gm.setId_grupo(rs.getInt(1));
+                gm.setNombre_grupo(rs.getString(2));;
+                lista.add(gm);
             }
             System.out.println("Grupo Encontrado");
             con.close();
