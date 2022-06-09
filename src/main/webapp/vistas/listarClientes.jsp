@@ -6,12 +6,13 @@
 
 <html>
 <head>
+    <link href="css/estilotabla.css" rel="stylesheet" type="text/css"/>
     <title>Listar</title>
 </head>
 
 
 <body>
-<div>
+<div id="main-container">
     <h1>Clientes</h1>
     <a href="">Agregar Nuevo</a>
     <table>
@@ -22,6 +23,7 @@
             <th>Apellido</th>
             <th>Telefono</th>
             <th>Correo</th>
+            <th>Acciones</th>
             <th></th>
             <th></th>
         </tr>
@@ -39,7 +41,7 @@
     <td> <%=e.getCorreo()%>  </td>
     <td> <a href="editarCliente.jsp?id=<%=e.getId_cliente()%>"> Editar </a> </td>
     <td> <a href="deleteCliente?id=<%=e.getId_cliente()%>"> Borrar </a> </td>
-    <td> <a href="deleteCliente?id=<%=e.getId_cliente()%>"> Consultar </a> </td>
+    <td> <a href="consultarClientes?id=<%=e.getId_cliente()%>"> Consultar </a> </td>
       </tr>
   <%
     }
@@ -47,7 +49,7 @@
         </tbody>
     </table>
         <br>
-    <a href="../inicio.jsp">Regresar al Menu Principal</a>
+    <a href="menu.jsp">Regresar al Menu Principal</a>
 </div>
 </body>
 </html>

@@ -7,6 +7,6 @@
         <title>Error!</title>
     </head>
     <body>
-        <h1>Error en la ejecucion>c </h1>
+        <h1>Error en la ejecucion </h1>
     </body>
 </html>
