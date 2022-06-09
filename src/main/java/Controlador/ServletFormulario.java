@@ -3,13 +3,24 @@ package Controlador;
 import Datos.ArtistaDAO;
 import Datos.CancionesDAO;
 import Datos.ClienteDAO;
+import Datos.ComentariosDAO;
+import Datos.GeneroDAO;
+import Datos.GrupoMusicalDAO;
+import Datos.LugarEventoDAO;
+import Datos.PlaylistDAO;
+import Datos.TipoEventoDAO;
 
 import Modelo.ArtistaJB;
 import Modelo.CancionesJB;
 import Modelo.ClienteJB;
+import Modelo.ComentariosJB;
+import Modelo.GeneroJB;
+import Modelo.GrupoMusicalJB;
+import Modelo.LugarEventoJB;
+import Modelo.PlaylistJB;
+import Modelo.TipoEventoJB;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,17 +30,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ServletFormulario", value = "ServletFormulario")
 public class ServletFormulario extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-        
-            String nombre, apellido, telefono, correo, nombre_artista, cancion_favorita;
+    }
 
-        nombre = request.getParameter("nombre");
-        apellido = request.getParameter("apellido");
-        telefono = request.getParameter("telefono");
-        correo = request.getParameter("correo");
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        //Cliente
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String telefono = request.getParameter("telefono");
+        String correo = request.getParameter("correo");
 
         ClienteJB e = new ClienteJB();
         e.setNombre(nombre);
@@ -38,58 +52,105 @@ public class ServletFormulario extends HttpServlet {
         e.setCorreo(correo);
         
         int estatus = ClienteDAO.insertCliente(e);
-        if (estatus > 0) { 
+        if (estatus > 0);
+        
+         
+        //Tipo de Evento
+    
+        String categoria = request.getParameter("categoria");
+        String tipo = request.getParameter("tipo");
+        String tematica = request.getParameter("tematica");
+        String nom_tpo= request.getParameter("nom_tpo");
+
+        TipoEventoJB t = new TipoEventoJB();
+        
+        t.setCategoria(categoria);
+        t.setTipo(tipo);
+        t.setTematica(tematica);
+        t.setNom_tpo(nom_tpo);
+
+        int estatus_t = TipoEventoDAO.insertEvento(t);
+        if (estatus_t > 0);
+            
+         
+        //Genero 
+        String nombre_genero = request.getParameter("nombre_genero");
+        
+        GeneroJB g = new GeneroJB();
+        g.setNombre_genero(nombre_genero);
+        
+        int estatus_gen = GeneroDAO.insertGenero(g);
+        if (estatus_gen > 0);
+        
+        
+        //Artista
+        String nombre_artista = request.getParameter("nombre_artista");
+        ArtistaJB a = new ArtistaJB();
+        a.setNombre_artista(nombre_artista);
+        int estatus_art = ArtistaDAO.insertArtista(a);
+        if (estatus_art > 0);
+       
+        //Grupo Musical
+        String nombre_grupo = request.getParameter("nombre_grupo");
+        GrupoMusicalJB gm = new GrupoMusicalJB();
+        gm.setNombre_grupo(nombre_grupo);
+
+        int estatus_gm = GrupoMusicalDAO.insertGrupo(gm);
+        if (estatus_gm > 0);
+      
+        
+        //Canciones
+        String cancion_favorita = request.getParameter("cancion_favorita");        
+        CancionesJB c = new CancionesJB();
+        c.setCancion_favorita(cancion_favorita);
+        
+        int estatus_can = CancionesDAO.insertCanciones(c);
+        if (estatus_can > 0);
+       
+        
+        //Playlist
+        String nom_play = request.getParameter("nom_play");
+        String link_c = request.getParameter("link_c");
+
+        PlaylistJB p = new PlaylistJB();
+        p.setNom_play(nom_play);
+        p.setLink_c(link_c);
+
+        int estatus_p = PlaylistDAO.insertPlaylist(p);
+        if (estatus_p > 0);
+      
+        
+        //Lugar Evento
+        String nombre_lugar = request.getParameter("nombre_lugar");
+        String direccion = request.getParameter("direccion");
+        String fecha = request.getParameter("fecha");
+
+        LugarEventoJB l = new LugarEventoJB();
+        l.setNombre_lugar(nombre_lugar);
+        l.setDireccion(direccion);
+        l.setFecha(fecha);
+
+        int estatus_l = LugarEventoDAO.insertLugar(l);
+        if (estatus_l > 0);
+        
+       
+        //Comentarios
+        String comentario = request.getParameter("comentario");
+        
+        ComentariosJB co = new ComentariosJB();
+        
+        co.setComentarios(comentario);
+        int estatus_co = ComentariosDAO.insertComentario(co);
+        if (estatus_co > 0) { 
             response.sendRedirect("vistas/registroExitoso.jsp");
         } else { 
             response.sendRedirect("vistas/error.jsp");
         }
         
-
-        nombre_artista = request.getParameter("nombre_artista");
-        ArtistaJB a = new ArtistaJB();
-        a.setNombre_artista(nombre_artista);
-        int estatus_art = ArtistaDAO.insertArtista(a);
-        if (estatus_art > 0);
-        
-
-
-        cancion_favorita = request.getParameter("cancion_favorita");
-        CancionesJB c = new CancionesJB();
-        c.setCancion_favorita(cancion_favorita);
-        int estatus_can = CancionesDAO.insertCanciones(c);
-        if (estatus_can > 0);
-        
-        
-
- 
- 
-  
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletFormulario</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletFormulario at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
+     
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        
-      
-    }
     
-    }
+    
