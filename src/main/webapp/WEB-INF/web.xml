@@ -4,9 +4,49 @@
         <servlet-name>ServletFormulario</servlet-name>
         <servlet-class>Controlador.ServletFormulario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletEditarDatos</servlet-name>
+        <servlet-class>Controlador.ServletEditarDatos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletContacto</servlet-name>
+        <servlet-class>Controlador.ServletContacto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletValidar</servlet-name>
+        <servlet-class>Controlador.ServletValidar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletValidacion</servlet-name>
+        <servlet-class>Controlador.ServletValidacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletBorrarDatos</servlet-name>
+        <servlet-class>Controlador.ServletBorrarDatos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletFormulario</servlet-name>
         <url-pattern>/ServletFormulario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEditarDatos</servlet-name>
+        <url-pattern>/ServletEditarDatos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletContacto</servlet-name>
+        <url-pattern>/ServletContacto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletValidar</servlet-name>
+        <url-pattern>/ServletValidar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletValidacion</servlet-name>
+        <url-pattern>/ServletValidacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletBorrarDatos</servlet-name>
+        <url-pattern>/ServletBorrarDatos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
