@@ -4,17 +4,18 @@ import Datos.ArtistaDAO;
 import Datos.CancionesDAO;
 import Datos.ClienteDAO;
 import Datos.ComentariosDAO;
-import Datos.GeneroDAO;
+import Datos.GeneroSelectDAO;
 import Datos.GrupoMusicalDAO;
 import Datos.LugarEventoDAO;
 import Datos.PlaylistDAO;
 import Datos.TipoEventoDAO;
 
+
 import Modelo.ArtistaJB;
 import Modelo.CancionesJB;
 import Modelo.ClienteJB;
 import Modelo.ComentariosJB;
-import Modelo.GeneroJB;
+import Modelo.GeneroSelectJB;
 import Modelo.GrupoMusicalJB;
 import Modelo.LugarEventoJB;
 import Modelo.PlaylistJB;
@@ -46,6 +47,7 @@ public class ServletFormulario extends HttpServlet {
         String correo = request.getParameter("correo");
 
         ClienteJB e = new ClienteJB();
+        
         e.setNombre(nombre);
         e.setApellido(apellido);
         e.setTelefono(telefono);
@@ -74,14 +76,16 @@ public class ServletFormulario extends HttpServlet {
             
          
         //Genero 
-        String nombre_genero = request.getParameter("nombre_genero");
+        /*
+        String gen_select;
+        gen_select = request.getParameter("gen_select");
         
-        GeneroJB g = new GeneroJB();
-        g.setNombre_genero(nombre_genero);
+        GeneroSelectJB gs = new GeneroSelectJB();
+        gs.setGen_select(gen_select);
         
-        int estatus_gen = GeneroDAO.insertGenero(g);
-        if (estatus_gen > 0);
-        
+        int estatus_gs = GeneroSelectDAO.insertGeneroSelect(gs);
+        if (estatus_gs > 0);
+        */
         
         //Artista
         String nombre_artista = request.getParameter("nombre_artista");

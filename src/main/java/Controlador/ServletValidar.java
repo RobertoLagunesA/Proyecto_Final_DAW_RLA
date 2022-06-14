@@ -1,4 +1,4 @@
-
+ 
 package Controlador;
 
 import Datos.EmpleadoDAO;
@@ -31,7 +31,7 @@ public class ServletValidar extends HttpServlet {
             em=edao.validar(usuario, contrasena);
             if(em.getUsuario()!=null){
                 request.setAttribute("usuario",em);
-                request.getRequestDispatcher("ServletValidacion?accion=Principal").forward(request, response); //principal es la accion de ServletValidacion
+                request.getRequestDispatcher("ServletValidacion?action=Principal").forward(request, response); //principal es la accion de ServletValidacion
             }else{
                 request.getRequestDispatcher("vistas/error.jsp").forward(request, response);
             }
