@@ -5,86 +5,63 @@ import java.io.Serializable;
 
 public class DjcontactoJB implements Serializable {
     private int id_contacto;
-    private String nombre;
-    private String apellido;
-    private String telefono;
-    private String correo;
-    private String comentarios;
+    private String nom_cont;
+    private String ape_cont;
+    private String tel_cont;
+    private String correo_cont;
+    private String coment_cont;
     
     public DjcontactoJB(){
-}
-    
-    //Insertar
-     public DjcontactoJB(String nombre, String apellido, String telefono, String correo, String comentarios) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.comentarios = comentarios;
     }
-     
-    //Eliminar
-    public DjcontactoJB(int id_contacto){
-        this.id_contacto = id_contacto;
-    }
-    
-     //Modificar
-    public DjcontactoJB (int id_contacto, String nombre, String apellido, String telefono, String correo, String comentarios){
-        this.id_contacto=id_contacto;
-        this.nombre=nombre;
-        this.apellido=apellido;
-        this.telefono=telefono;
-        this.correo=correo;
-        this.comentarios=comentarios;
-    }
-   
-  
-    public int getid_contacto() {
+
+    public int getId_contacto() {
         return id_contacto;
     }
 
-    public void setid_contacto(int id_contacto) {
+    public void setId_contacto(int id_contacto) {
         this.id_contacto = id_contacto;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNom_cont() {
+        return nom_cont;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNom_cont(String nom_cont) {
+        this.nom_cont = nom_cont;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApe_cont() {
+        return ape_cont;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApe_cont(String ape_cont) {
+        this.ape_cont = ape_cont;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTel_cont() {
+        return tel_cont;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTel_cont(String tel_cont) {
+        this.tel_cont = tel_cont;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getCorreo_cont() {
+        return correo_cont;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCorreo_cont(String correo_cont) {
+        this.correo_cont = correo_cont;
     }
 
-    public String getComentarios() {
-        return comentarios;
+    public String getComent_cont() {
+        return coment_cont;
     }
 
-    public void setComentarios(String comentarios) {
-        this.comentarios = comentarios;
+    public void setComent_cont(String coment_cont) {
+        this.coment_cont = coment_cont;
     }
     
 }
+
+    

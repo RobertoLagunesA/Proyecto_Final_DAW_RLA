@@ -10,7 +10,7 @@ public class ComentariosJB implements Serializable {
 
     //Insertar
     public ComentariosJB(String comentarios){
-        this.comentarios=comentarios;
+        this.comentarios = comentarios;
     }
     //Eliminar
     public ComentariosJB(int id_comentarios){

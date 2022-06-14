@@ -5,17 +5,17 @@ public class TipoEventoJB implements Serializable {
     private int id_evento;
     private String categoria;
     private String tipo;
-    private String nombre;
     private String tematica;
+    private String nom_tpo;
 
     public TipoEventoJB (){
     }
     //Insertar
-    public TipoEventoJB (String categoria, String tipo, String nombre, String tematica){
+    public TipoEventoJB (String categoria, String tipo, String tematica, String nom_tpo){
         this.categoria=categoria;
         this.tipo=tipo;
-        this.nombre=nombre;
         this.tematica=tematica;
+        this.nom_tpo=nom_tpo;
     }
     //Eliminar
     public TipoEventoJB(int id_evento){
@@ -23,12 +23,12 @@ public class TipoEventoJB implements Serializable {
     }
 
     //Modificar
-    public TipoEventoJB (int id_evento, String categoria, String tipo, String nombre, String tematica){
+    public TipoEventoJB (int id_evento, String categoria, String tipo, String tematica, String nom_tpo){
         this.id_evento=id_evento;
         this.categoria=categoria;
         this.tipo=tipo;
-        this.nombre=nombre;
         this.tematica=tematica;
+        this.nom_tpo=nom_tpo;
     }
 
     public void setId_evento(int id_evento){
@@ -52,13 +52,6 @@ public class TipoEventoJB implements Serializable {
         return tipo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
 
     public void setTematica(String tematica) {
         this.tematica = tematica;
@@ -66,5 +59,13 @@ public class TipoEventoJB implements Serializable {
 
     public String getTematica() {
         return tematica;
+    }
+    
+    public void setNom_tpo(String nom_tpo) {
+        this.nom_tpo = nom_tpo;
+    }
+
+    public String getNom_tpo() {
+        return nom_tpo;
     }
 }

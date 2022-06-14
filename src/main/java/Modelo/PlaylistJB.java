@@ -3,16 +3,16 @@ import java.io.Serializable;
 
 public class PlaylistJB implements Serializable {
     private int id_playlist;
-    private String nombre;
+    private String nom_play;
     private String link_c;
 
     public PlaylistJB(){
     }
 
     //Insertar
-    public PlaylistJB(String nombre, String link_c){
-        this.nombre=nombre;
-        this.link_c=link_c;
+    public PlaylistJB(String nom_play, String link_c){
+        this.nom_play = nom_play;
+        this.link_c = link_c;
     }
 
     //Eliminar
@@ -21,9 +21,9 @@ public class PlaylistJB implements Serializable {
     }
 
     //Modificar
-    public PlaylistJB(int id_playlist, String nombre, String link_c){
+    public PlaylistJB(int id_playlist, String nom_play, String link_c){
         this.id_playlist=id_playlist;
-        this.nombre=nombre;
+        this.nom_play=nom_play;
         this.link_c=link_c;
     }
 
@@ -34,11 +34,11 @@ public class PlaylistJB implements Serializable {
         return id_playlist;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNom_play(String nom_play) {
+        this.nom_play = nom_play;
     }
-    public String getNombre() {
-        return nombre;
+    public String getNom_play() {
+        return nom_play;
     }
 
     public void setLink_c(String link_c) {

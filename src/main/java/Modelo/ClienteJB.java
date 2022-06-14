@@ -5,26 +5,27 @@ public class ClienteJB implements Serializable {
     private int id_cliente;
     private String nombre;
     private String apellido;
-    private int telefono;
+    private String telefono;
     private String correo;
 
-    public DatosPersonalesJB(){
+    public ClienteJB(){
     }
 
     //Insertar
-    public DatosPersonalesJB (String nombre, String apellido, int telefono, String correo){
+    public ClienteJB (String nombre, String apellido, String telefono, String correo){
        this.nombre=nombre;
        this.apellido=apellido;
        this.telefono=telefono;
        this.correo=correo;
     }
+    
     //Eliminar
-    public DatosPersonalesJB(int id_cliente){
+    public ClienteJB(int id_cliente){
         this.id_cliente = id_cliente;
     }
 
     //Modificar
-    public DatosPersonalesJB (int id_cliente, String nombre, String apellido, int telefono, String correo){
+    public ClienteJB (int id_cliente, String nombre, String apellido, String telefono, String correo){
         this.id_cliente=id_cliente;
         this.nombre=nombre;
         this.apellido=apellido;
@@ -55,11 +56,11 @@ public class ClienteJB implements Serializable {
         return apellido;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -70,4 +71,6 @@ public class ClienteJB implements Serializable {
     public String getCorreo() {
         return correo;
     }
+
+
 }

@@ -5,14 +5,16 @@ public class LugarEventoJB implements Serializable {
     private int id_lugar;
     private String nombre_lugar;
     private String direccion;
+    private String fecha;
 
     public LugarEventoJB(){
     }
 
     //Insertar
-    public LugarEventoJB(String nombre_lugar, String direccion){
-        this.nombre_lugar=nombre_lugar;
-        this.direccion=direccion;
+    public LugarEventoJB(String nombre_lugar, String direccion, String fecha){
+        this.nombre_lugar = nombre_lugar;
+        this.direccion = direccion;
+        this.fecha = fecha;
     }
 
     //Eliminar
@@ -21,10 +23,11 @@ public class LugarEventoJB implements Serializable {
     }
 
     //Modificar
-    public LugarEventoJB(int id_lugar, String nombre_lugar, String direccion){
+    public LugarEventoJB(int id_lugar, String nombre_lugar, String direccion, String fecha){
         this.id_lugar=id_lugar;
         this.nombre_lugar=nombre_lugar;
         this.direccion=direccion;
+        this.fecha=fecha;
     }
 
     public void setId_lugar(int id_lugar) {
@@ -46,5 +49,13 @@ public class LugarEventoJB implements Serializable {
     }
     public String getDireccion() {
         return direccion;
+    }
+
+    public void setFecha(String fecha){
+        this.fecha = fecha;
+    }
+
+    public String getFecha() {
+        return fecha;
     }
 }

@@ -4,15 +4,13 @@ import java.io.Serializable;
 public class GrupoMusicalJB implements Serializable {
     private int id_grupo;
     private String nombre_grupo;
-    private String cancion_popular;
 
     public GrupoMusicalJB(){
     }
 
     //Insertar
-    public GrupoMusicalJB(String nombre_grupo, String cancion_popular){
-        this.nombre_grupo=nombre_grupo;
-        this.cancion_popular=cancion_popular;
+    public GrupoMusicalJB(String nombre_grupo){
+        this.nombre_grupo = nombre_grupo;
     }
 
     //Eliminar
@@ -21,10 +19,9 @@ public class GrupoMusicalJB implements Serializable {
     }
 
     //Modificar
-    public GrupoMusicalJB(int id_grupo, String nombre_grupo, String cancion_popular){
+    public GrupoMusicalJB(int id_grupo, String nombre_grupo){
         this.id_grupo=id_grupo;
         this.nombre_grupo=nombre_grupo;
-        this.cancion_popular=cancion_popular;
     }
 
     public void setId_grupo(int id_grupo) {
@@ -41,12 +38,7 @@ public class GrupoMusicalJB implements Serializable {
         return nombre_grupo;
     }
 
-    public void setCancion_popular(String cancion_popular) {
-        this.cancion_popular = cancion_popular;
-    }
-
-    public String getCancion_popular() {
-        return cancion_popular;
-    }
+ 
+    
 
 }
