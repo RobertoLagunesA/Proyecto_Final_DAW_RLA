@@ -7,15 +7,8 @@
     font-family: 'Akshar', sans-serif;
 }
 
-body{
-    margin: 0;
-}
-
-
-header{ /* Color de fondo del header */
+header{  /* Color del Header*/
     background-color: #fc0b58;
-    position: fixed;
-    width: 100%;
 }
 
 header .logo{ /* Header, logo, DJ Art3mixx */
@@ -26,38 +19,63 @@ header .logo{ /* Header, logo, DJ Art3mixx */
     font-size: 3em;
 }
 
-header .container{ /* Header, logo, DJ Art3mixx, centrado, version MOBILE */
+header .container{ 
     display:  flex;
     flex-direction: column;
     align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    }
-
-
-header nav{ /* Header, Estilo INICIO, FORMULARIO Y CONTACTO, Centrado MOBILE */
-    display: flex;
-    text-align: center;
-    padding-bottom: 25px;
-    flex-direction: row;
-    padding-bottom: 0;
-    padding-right: 25px;
 }
 
-header a {  /* Header, Estilo INICIO, FORMULARIO Y CONTACTO, Etiquetas, color MOBILE */
+header nav{ 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a { 
     padding: 5px 12px;
     text-decoration: none;
     font-weight: bold;
     color: #ffffff;
     font-size: 2em;
-    
 }
 
 header a:hover{  /* Header, pasamos con el cursor arriba del nombre */
     color: #119DA4;
 }
 
-  
+body{
+    background-color: #3b4652;
+}
+
+.main-section{
+    margin: 0 auto;
+    margin-top: 2%;
+    padding: 0;
+}
+
+
+.leter{
+    color: black;
+}
+
+.user-img{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.user-img img{
+    width: 100px;
+    height: 100px;
+}
+
+.modal-content{
+    background-color: #dfd9d9;
+    opacity: .95;
+    padding: 0 200px;
+    border-radius: 25px;
+}
+
 
 footer{ /* Color del footer*/
     background-color: #fc0b58;
@@ -74,5 +92,6 @@ footer .container{ /* Medidas del contenedor del footer*/
     display: flex;
     justify-content: center;
     align-items: flex-end;
-}
+    margin-top: 280px;
 
+}
