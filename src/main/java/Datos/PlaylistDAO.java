@@ -105,21 +105,21 @@ public class PlaylistDAO {
     }
 
     //Buscar TODOS los datos del cliente con el ArrayList
-    public static List<PlaylistJB> searchAllCliente(){
-        List<PlaylistJB> lista = new ArrayList<PlaylistJB>();//Generamos objeto de la lista
-        PlaylistJB p = new PlaylistJB(); //Intanciamos JB
+    public static List<PlaylistJB> searchAllPlaylist(){
+        List<PlaylistJB> lista_p = new ArrayList<PlaylistJB>(); //Generamos objeto de la lista
         try{
             Connection con = Conexion.getConnection();
-            String q ="SELECT * FROM playslist";
+            String q ="SELECT * FROM playlist";
 
             PreparedStatement ps= con.prepareStatement(q);
 
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
+                PlaylistJB p = new PlaylistJB(); //Intanciamos JB
                 p.setId_playlist(rs.getInt(1));
                 p.setNom_play(rs.getString(2));
                 p.setLink_c(rs.getString(3));
-                lista.add(p);
+                lista_p.add(p);
             }
 
             System.out.println("Playlist Encontrado");
@@ -128,6 +128,6 @@ public class PlaylistDAO {
             System.out.println("Error al buscar la Playlist");
             System.out.println(ed.getMessage());
         }
-        return lista;
+        return lista_p;
     }
 }

@@ -100,8 +100,7 @@ public class GeneroDAO {
 
     //Buscar TODOS los datos de los generos con el ArrayList
     public static List<GeneroJB> searchAllGenero(){
-        List<GeneroJB> lista = new ArrayList<GeneroJB>();//Generamos objeto de la lista
-        
+        List<GeneroJB> lista_ge = new ArrayList<GeneroJB>();//Generamos objeto de la lista     
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM genero";
@@ -109,10 +108,10 @@ public class GeneroDAO {
             PreparedStatement ps= con.prepareStatement(q);
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
-                GeneroJB g = new GeneroJB(); //Intanciamos JB
-                g.setId_genero(rs.getInt(1));
-                g.setNombre_genero(rs.getString(2));
-                lista.add(g);
+                GeneroJB ge = new GeneroJB(); //Intanciamos JB
+                ge.setId_genero(rs.getInt(1));
+                ge.setNombre_genero(rs.getString(2));
+                lista_ge.add(ge);
             }
             System.out.println("Genero Encontrado");
             con.close();
@@ -120,6 +119,6 @@ public class GeneroDAO {
             System.out.println("Error al buscar los generos");
             System.out.println(ed.getMessage());
         }
-        return lista;
+        return lista_ge;
     }
 }

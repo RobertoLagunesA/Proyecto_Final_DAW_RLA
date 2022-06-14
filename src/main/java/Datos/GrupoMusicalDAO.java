@@ -99,9 +99,8 @@ public class GrupoMusicalDAO {
     }
 
     //Buscar TODOS los grupos con el ArrayList
-    public static List<GrupoMusicalJB> searchAllCliente(){
-        List<GrupoMusicalJB> lista = new ArrayList<GrupoMusicalJB>();//Generamos objeto de la lista
-        GrupoMusicalJB gm = new GrupoMusicalJB(); //Intanciamos JB
+    public static List<GrupoMusicalJB> searchAllGrupo(){
+        List<GrupoMusicalJB> lista_gm = new ArrayList<GrupoMusicalJB>();//Generamos objeto de la lista
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM grupomusical";
@@ -110,9 +109,10 @@ public class GrupoMusicalDAO {
 
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
+                GrupoMusicalJB gm = new GrupoMusicalJB(); //Intanciamos JB
                 gm.setId_grupo(rs.getInt(1));
                 gm.setNombre_grupo(rs.getString(2));;
-                lista.add(gm);
+                lista_gm.add(gm);
             }
             System.out.println("Grupo Encontrado");
             con.close();
@@ -120,7 +120,7 @@ public class GrupoMusicalDAO {
             System.out.println("Error al buscar el Grupo Musical");
             System.out.println(ed.getMessage());
         }
-        return lista;
+        return lista_gm;
     }
 
 }

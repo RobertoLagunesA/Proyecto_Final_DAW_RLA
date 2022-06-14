@@ -109,8 +109,7 @@ public class LugarEventoDAO {
 
     //Buscar TODOS los datos del cliente con el ArrayList
     public static List<LugarEventoJB> searchAllLugar(){
-        List<LugarEventoJB> lista = new ArrayList<LugarEventoJB>();//Generamos objeto de la lista
-        LugarEventoJB l = new LugarEventoJB(); //Intanciamos JB
+        List<LugarEventoJB> lista_l = new ArrayList<LugarEventoJB>();//Generamos objeto de la lista
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM lugarevento";
@@ -119,11 +118,12 @@ public class LugarEventoDAO {
 
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
+                LugarEventoJB l = new LugarEventoJB(); //Intanciamos JB
                 l.setId_lugar(rs.getInt(1));
                 l.setNombre_lugar(rs.getString(2));
                 l.setDireccion(rs.getString(3));
                 l.setFecha(rs.getString(4));
-                lista.add(l);
+                lista_l.add(l);
             }
 
             System.out.println("Evento Encontrado");
@@ -132,6 +132,6 @@ public class LugarEventoDAO {
             System.out.println("Error al encontrar el evento");
             System.out.println(ed.getMessage());
         }
-        return lista;
+        return lista_l;
     }
 }

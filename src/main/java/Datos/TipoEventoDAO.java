@@ -112,7 +112,7 @@ public class TipoEventoDAO {
     //Buscar TODOS los datos del evento con el ArrayList
     public static List<TipoEventoJB> searchAllEvento(){
         List<TipoEventoJB> lista = new ArrayList<TipoEventoJB>();//Generamos objeto de la lista
-        TipoEventoJB t = new TipoEventoJB(); //Intanciamos JB
+        
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM tipoevento";
@@ -121,6 +121,7 @@ public class TipoEventoDAO {
 
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
+                TipoEventoJB t = new TipoEventoJB(); //Intanciamos JB
                 t.setId_evento(rs.getInt(1));
                 t.setCategoria(rs.getString(2));
                 t.setTipo(rs.getString(3)); 

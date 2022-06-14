@@ -100,8 +100,8 @@ public class CancionesDAO {
 
     //Buscar TODOS los datos de las canciones con el ArrayList
     public static List<CancionesJB> searchAllCanciones(){
-        List<CancionesJB> lista = new ArrayList<CancionesJB>();//Generamos objeto de la lista
-        CancionesJB c = new CancionesJB(); //Intanciamos JB
+        List<CancionesJB> lista_c = new ArrayList<CancionesJB>();//Generamos objeto de la lista
+        
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM canciones";
@@ -110,9 +110,10 @@ public class CancionesDAO {
 
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
+                CancionesJB c = new CancionesJB(); //Intanciamos JB
                 c.setId_canciones(rs.getInt(1));
                 c.setCancion_favorita(rs.getString(2));
-                lista.add(c);
+                lista_c.add(c);
             }
             System.out.println("Canciones Encontradas");
             con.close();
@@ -120,6 +121,6 @@ public class CancionesDAO {
             System.out.println("Error al buscar las canciones");
             System.out.println(ed.getMessage());
         }
-        return lista;
+        return lista_c;
     }
 }

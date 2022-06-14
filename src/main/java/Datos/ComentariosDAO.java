@@ -98,8 +98,8 @@ public class ComentariosDAO {
 
     //Buscar TODOS los datos de los comentarios con el ArrayList
     public static List<ComentariosJB> searchAllComentarios(){
-        List<ComentariosJB> lista = new ArrayList<ComentariosJB>();//Generamos objeto de la lista
-        ComentariosJB co = new ComentariosJB(); //Intanciamos JB
+        List<ComentariosJB> lista_co = new ArrayList<ComentariosJB>();//Generamos objeto de la lista
+        
         try{
             Connection con = Conexion.getConnection();
             String q ="SELECT * FROM comentarios";
@@ -107,9 +107,10 @@ public class ComentariosDAO {
             PreparedStatement ps= con.prepareStatement(q);
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
+                ComentariosJB co = new ComentariosJB(); //Intanciamos JB
                 co.setId_comentarios(rs.getInt(1));
                 co.setComentarios(rs.getString(2));
-                lista.add(co);
+                lista_co.add(co);
             }
             System.out.println("Comentarios Encontrados");
             con.close();
@@ -117,6 +118,6 @@ public class ComentariosDAO {
             System.out.println("Error al buscar los Comentarios");
             System.out.println(ed.getMessage());
         }
-        return lista;
+        return lista_co;
     }
 }
